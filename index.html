@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elizabeth EH | Aspiring Business Analyst</title>
+
+<meta name="description" content="Aspiring analyst-track professional focused on process clarity, reporting support, and tool adoption—building SQL and analytics skills.">
+
+<meta property="og:title" content="Elizabeth EH | Aspiring Business Analyst">
+<meta property="og:description" content="Impact-focused professional building analytics skills to support clearer reporting, stronger processes, and better decisions.">
+<meta property="og:type" content="website">
+
+<meta name="color-scheme" content="dark">
+
+<style>
+:root{
+  --bg:#04050a;
+  --text:#f8fafc;
+  --muted:rgba(225,230,255,.72);
+
+  --panel:rgba(255,255,255,.06);
+  --stroke:rgba(255,255,255,.18);
+
+  --accent1:#5eead4;
+  --accent2:#8b5cf6;
+  --accent3:#3b82f6;
+
+  --radius:22px;
+  --wrap:min(1100px,calc(100% - 6vw));
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --font:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto;
+
+  --navH: 62px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--font);
+  background:
+    radial-gradient(1400px 800px at 10% -10%, rgba(139,92,246,.25), transparent),
+    radial-gradient(1200px 800px at 95% 10%, rgba(94,234,212,.22), transparent),
+    radial-gradient(1000px 700px at 50% 120%, rgba(59,130,246,.15), transparent),
+    var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  animation:ambientShift 18s ease-in-out infinite alternate;
+}
+
+@keyframes ambientShift{
+  0%{filter:hue-rotate(0deg);}
+  100%{filter:hue-rotate(8deg);}
+}
+
+.wrap{width:var(--wrap);margin:auto}
+
+/* Offset sections so sticky nav doesn't cover anchors */
+section{
+  padding:120px 0;
+  scroll-margin-top: calc(var(--navH) + 20px);
+}
+
+h1{
+  font-size:clamp(42px,4vw,60px);
+  line-height:1.1;
+  letter-spacing:-.03em;
+}
+
+h1 span{
+  background:linear-gradient(135deg,var(--accent1),var(--accent3));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+h2{
+  font-size:28px;
+  margin-bottom:24px;
+}
+
+p{color:var(--muted)}
+a{color:inherit}
+
+/* ===== Sticky Nav ===== */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  height:var(--navH);
+  display:flex;
+  align-items:center;
+  backdrop-filter: blur(18px);
+  background: linear-gradient(to bottom, rgba(4,5,10,.82), rgba(4,5,10,.55));
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.topbar__inner{
+  width:var(--wrap);
+  margin-inline:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:650;
+  letter-spacing:.06em;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.brandMark{
+  width:28px;height:28px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg, rgba(94,234,212,.22), rgba(139,92,246,.22));
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 18px 60px rgba(0,0,0,.45);
+}
+.brandText{
+  font-size:13px;
+  opacity:.95;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.nav a{
+  text-decoration:none;
+  font-size:13px;
+  color:rgba(225,230,255,.78);
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid transparent;
+  transition:.25s var(--ease);
+}
+.nav a:hover{
+  color:var(--text);
+  background:rgba(255,255,255,.05);
+  border-color:rgba(255,255,255,.10);
+}
+
+.nav .navCta{
+  padding:10px 14px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.18);
+  background:linear-gradient(rgba(255,255,255,.08), rgba(255,255,255,.05));
+}
+.nav .navCta:hover{
+  background:rgba(255,255,255,.09);
+}
+
+.navToggle{
+  display:none;
+  width:44px;height:44px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.05);
+}
+.navToggle span{
+  display:block;
+  width:18px;height:2px;
+  background:rgba(255,255,255,.8);
+  margin:6px auto;
+  border-radius:2px;
+}
+
+/* Mobile menu panel */
+.mobileNav{
+  display:none;
+  position:absolute;
+  top:calc(var(--navH) - 2px);
+  right:calc((100% - var(--wrap)) / 2);
+  width:min(340px, calc(100vw - 32px));
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.14);
+  background:linear-gradient(rgba(255,255,255,.10), rgba(255,255,255,.06));
+  backdrop-filter: blur(22px);
+  box-shadow:0 50px 140px rgba(0,0,0,.55);
+  padding:10px;
+}
+.mobileNav a{
+  display:block;
+  padding:12px 12px;
+  border-radius:14px;
+  text-decoration:none;
+  color:rgba(225,230,255,.85);
+}
+.mobileNav a:hover{
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+}
+.mobileNav .divider{
+  height:1px;
+  background:rgba(255,255,255,.10);
+  margin:6px 8px;
+}
+
+/* ===== Layout ===== */
+.hero{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:80px;
+  align-items:start;
+}
+
+/* ===== Premium Buttons ===== */
+.btn{
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:18px;
+  border:1px solid var(--stroke);
+  background:linear-gradient(rgba(255,255,255,.08), rgba(255,255,255,.05));
+  margin-top:28px;
+  margin-right:14px;
+  transition:.35s var(--ease);
+  backdrop-filter:blur(14px);
+  text-decoration:none;
+}
+
+.btn.primary{
+  background:linear-gradient(135deg,var(--accent1),var(--accent2));
+  color:#000;
+  font-weight:650;
+  box-shadow:
+    0 0 25px rgba(94,234,212,.45),
+    0 0 60px rgba(139,92,246,.35);
+}
+
+.btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 30px rgba(0,0,0,.4);
+}
+
+/* ===== Glass Cards ===== */
+.card{
+  padding:38px;
+  border-radius:var(--radius);
+  background:linear-gradient(rgba(255,255,255,.10), rgba(255,255,255,.05));
+  border:1px solid var(--stroke);
+  backdrop-filter:blur(26px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.15),
+    0 50px 120px rgba(0,0,0,.55);
+  margin-bottom:32px;
+  transition:.35s var(--ease);
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,255,255,.3);
+}
+
+/* ===== Value List (scannable) ===== */
+.valueList{
+  margin-top:14px;
+  padding-left:18px;
+  color:var(--muted);
+}
+.valueList li{ margin:10px 0; }
+
+/* ===== Skills ===== */
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-top:22px;
+}
+
+.skill{
+  padding:9px 16px;
+  border-radius:999px;
+  background:rgba(139,92,246,.18);
+  border:1px solid rgba(139,92,246,.4);
+  font-size:13px;
+  transition:.3s var(--ease);
+}
+
+.skill:hover{
+  background:rgba(94,234,212,.25);
+  border-color:rgba(94,234,212,.6);
+}
+
+/* ===== Contact ===== */
+.contactGrid{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:32px;
+  align-items:start;
+}
+.contactActions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.note{
+  margin-top:14px;
+  font-size:14px;
+  color:var(--muted);
+}
+.smallCaps{
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* ===== Fade-in Animation ===== */
+section{
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeIn 1s ease forwards;
+}
+section:nth-of-type(2){animation-delay:.2s}
+section:nth-of-type(3){animation-delay:.4s}
+section:nth-of-type(4){animation-delay:.6s}
+
+@keyframes fadeIn{
+  to{ opacity:1; transform:translateY(0); }
+}
+
+footer{
+  padding:90px 0;
+  border-top:1px solid var(--stroke);
+  color:var(--muted);
+  text-align:center;
+}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .contactGrid{grid-template-columns:1fr}
+  .nav{display:none}
+  .navToggle{display:block}
+  .mobileNav{right:16px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="#top" aria-label="Home">
+      <span class="brandMark">◈</span>
+      <span class="brandText">ELIZABETH EH</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="navCta">Contact</a>
+    </nav>
+
+    <button class="navToggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+
+    <div class="mobileNav" id="mobileNav" aria-label="Mobile menu">
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <div class="divider"></div>
+      <a href="./Elizabeth_Hart_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero wrap" id="top">
+  <div>
+    <h1>
+      Analyst-track professional focused on coordination, process support, and tangible <span>impact.<span>
+    </h1>
+
+    <p style="margin-top:26px;">
+      I’ve supported teams where organization and execution influence performance outcomes. 
+      I like structured information that is clear and actionable, adapt quickly to new systems, and help others use them effectively. 
+      I’m deepening my analytics skills through structured certification programs.
+    </p>
+
+    <a href="https://www.linkedin.com/in/elizabetheh7/" target="_blank" rel="noopener" class="btn primary">LinkedIn</a>
+    <a href="#contact" class="btn">Contact</a>
+  </div>
+
+  <div>
+    
+</section>
+
+<section class="wrap" id="experience">
+  <h2>Relevant Experience</h2>
+
+  <div class="card">
+    <strong>Business Development Executive – Vibrant IP (Remote)</strong>
+    <p>Conducted remote outreach across multiple channels and time zones. Scheduled appointments, communicated service offerings, and researched industry trends to identify potential leads.</p>
+  </div>
+
+  <div class="card">
+    <strong>Tech Support Agent – Solai &amp; Cameron Technologies (Hybrid)</strong>
+    <p>Provided remote support for POS system upgrade work and general troubleshooting. Used French language skills to assist with projects involving the Canadian region.</p>
+  </div>
+
+  <div class="card">
+    <strong>Logistics Specialist – USAT / DB Schenker</strong>
+    <p>Completed in-office training phases, using Excel to track progress and training milestones. Worked in both in-office and remote settings.</p>
+  </div>
+
+  <div class="card">
+    <strong>Inventory Clerk – ResourceMFG</strong>
+    <p>Supported inventory tracking using both electronic and manual systems within a diverse warehouse team. Verified shipment accuracy by inspecting crates and packaging prior to dispatch.</p>
+  </div>
+</section>
+
+<section class="wrap" id="skills">
+  <h2>Technical &amp; Professional Skills</h2>
+
+  <div class="skills">
+    <div class="skill">Google Sheets</div>
+    <div class="skill">SQL (Foundational)</div>
+    <div class="skill">Remote Collaboration</div>
+    <div class="skill">French</div>
+  </div>
+</section>
+
+<section class="wrap" id="contact">
+  <h2>Contact</h2>
+
+  <div class="contactGrid">
+    <div class="card">
+      <p>
+        If you’re hiring for analyst-track, operations, or business support roles, I’d love to connect.
+        The fastest way to reach me is email.
+      </p>
+
+      <div class="contactActions" style="margin-top:16px;">
+        <a class="btn primary" href="mailto:elizabetheh2022@gmail.com">Email Me</a>
+        <a class="btn" href="https://www.linkedin.com/in/elizabetheh7/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+
+      <p class="note">
+        Tip: If you include the role name and location/time zone, I can respond faster.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>What I’m looking for</h2>
+      <ul class="valueList">
+        <li>Analyst-track roles supporting reporting, process clarity, and execution</li>
+        <li>Teams that value clear documentation and usable tracking</li>
+        <li>Opportunities to grow analytics skills alongside operational impact</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Elizabeth EH
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* Mobile nav toggle */
+const navToggle = document.getElementById("navToggle");
+const mobileNav = document.getElementById("mobileNav");
+
+function closeMenu(){
+  if(!mobileNav) return;
+  mobileNav.style.display = "none";
+  navToggle?.setAttribute("aria-expanded","false");
+}
+
+navToggle?.addEventListener("click", () => {
+  const open = mobileNav.style.display === "block";
+  mobileNav.style.display = open ? "none" : "block";
+  navToggle.setAttribute("aria-expanded", String(!open));
+});
+
+/* Close menu on link click */
+mobileNav?.querySelectorAll("a").forEach(a=>{
+  a.addEventListener("click", closeMenu);
+});
+
+/* Close menu on outside click (mobile) */
+document.addEventListener("click", (e) => {
+  if (!mobileNav || !navToggle) return;
+  const target = e.target;
+  const clickedInside = mobileNav.contains(target) || navToggle.contains(target);
+  if (!clickedInside) closeMenu();
+});
+
+/* Close on Escape */
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeMenu();
+});
+</script>
+
+</body>
+</html>
